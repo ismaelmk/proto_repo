@@ -41,7 +41,7 @@ jobs:
       run: ./generate-proto-java-code.sh
 
     - name: Build step
-      run: ./compile_proto_java.sh
+      run: ./compile_proto_java.sh ${{ steps.bump_version.outputs.tag }}
 
     - name: Bump version and push tag
       id: bump_version
