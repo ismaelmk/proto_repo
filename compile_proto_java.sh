@@ -34,7 +34,7 @@ publishing {
     maven {
       name = 'GitHubPackages'
       url = 'https://maven.pkg.github.com/ismaelmk/proto_repo'
-      credentials = {
+      credentials(PasswordCredentials){
         username = System.getenv('GITHUB_ACTOR')
         password = System.getenv('GITHUB_TOKEN')
       }
