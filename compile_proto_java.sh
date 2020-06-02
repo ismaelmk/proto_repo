@@ -1,14 +1,25 @@
+#!/bin/bash
 
-curl -LJO  https://services.gradle.org/distributions/gradle-6.4.1-bin.zip
+if [ -d "gradle-6.4.1/" ]; then
+        echo 'using existing gradle'
+else
+        curl -LJO  https://services.gradle.org/distributions/gradle-6.4.1-bin.zip
 
-unzip gradle-6.4.1-bin.zip
+        unzip gradle-6.4.1-bin.zip
+fi;
+
+artifact_version="0.0.1"
+if [ ! -z "$1" ]; then
+        artifact_version="$1"
+fi;
 
 printf "apply plugin: 'maven'
 apply plugin: 'java'
 apply plugin: 'maven-publish'
 
 group 'com.oyster.protos'
-version '1.0'
+
+version '${artifact_version}'
 
 
 sourceCompatibility = 1.8
