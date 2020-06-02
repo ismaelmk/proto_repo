@@ -37,6 +37,8 @@ jobs:
       with:
         # The Java version to make available on the path. Takes a whole or semver Java version, or 1.x syntax (e.g. 1.8 => Java 8.x)
         java-version: 11.0.7
+    - name: Build java classes
+      run: ./generate-proto-java-code.sh
     - name: Build with Gradle
       run: ./gradlew build
   
