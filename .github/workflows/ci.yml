@@ -39,6 +39,7 @@ jobs:
         java-version: 11.0.7
     - name: Build java classes
       run: ./generate-proto-java-code.sh
-    - name: Build with Gradle
-      run: ./gradlew build
+    - uses: eskatos/gradle-command-action@v1
+      with:
+        arguments: build
   
