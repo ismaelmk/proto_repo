@@ -47,10 +47,10 @@ jobs:
         RELEASE_BRANCHES: master
 
     - name: Generate java classes
-      run: ./generate-proto-java-code.sh
+      run: ./generate-proto-java-code.sh 
 
     - name: Build step
-      run: ./compile_proto_java.sh 
+      run: ./compile_proto_java.sh ${{ steps.bump_version.outputs.tag }}
 
     - name: Publishing java version
       run:  ./gradle-6.4.1/bin/gradle publish -d 
