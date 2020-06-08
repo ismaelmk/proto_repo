@@ -37,11 +37,6 @@ jobs:
       with:
         # The Java version to make available on the path. Takes a whole or semver Java version, or 1.x syntax (e.g. 1.8 => Java 8.x)
         java-version: 11.0.7
-    - name: Generate java classes
-      run: ./generate-proto-java-code.sh
-
-    - name: Build step
-      run: ./compile_proto_java.sh 
 
     - name: Bump version and push tag
       id: bump_version
@@ -51,8 +46,14 @@ jobs:
         WITH_V: true
         RELEASE_BRANCHES: master
 
+    - name: Generate java classes
+      run: ./generate-proto-java-code.sh
+
+    - name: Build step
+      run: ./compile_proto_java.sh 
+
     - name: Publishing java version
-      run:  ./gradle-6.4.1/bin/gradle publish -d -Pversion="${{ steps.bump_version.outputs.tag }}"
+      run:  ./gradle-6.4.1/bin/gradle publish -d 
       env:
         ARTIFACT_USERNAME: ${{ github.actor }}
         ARTIFACT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
