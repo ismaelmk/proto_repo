@@ -42,6 +42,7 @@ jobs:
 
     - name: Build step
       run: ./compile_proto_java.sh ${{ steps.bump_version.outputs.tag }}
+           ./gradle-6.4.1/bin/gradle install
 
     - name: Bump version and push tag
       id: bump_version
@@ -55,7 +56,7 @@ jobs:
       run: echo ${{ steps.bump_version.outputs.tag }}
 
     - name: Publishing java version
-      run: ./gradle-6.4.1/bin/gradle -Pversion="${{ steps.bump_version.outputs.tag }}"
+      run: ./gradle-6.4.1/bin/gradle publish -Pversion="${{ steps.bump_version.outputs.tag }}"
       env:
         ARTIFACT_USERNAME: ${{ github.actor }}
         ARTIFACT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
