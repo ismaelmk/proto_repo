@@ -51,6 +51,11 @@ publishing {
       }
     }
   }
+  publications {
+     gpr(MavenPublication) {
+         from(components.java)
+    }
+  }
 }
 
 " > build.gradle
