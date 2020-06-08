@@ -33,7 +33,6 @@ repositories {
 }
 
 dependencies {
-    compile group: 'com.oyster.entities', name: 'entities', version: '1.0-SNAPSHOT'
     compile group: 'io.grpc', name: 'grpc-protobuf', version: protobufVersion
     compile group: 'io.grpc', name: 'grpc-netty-shaded', version: protobufVersion
     compile group: 'io.grpc', name: 'grpc-stub', version: protobufVersion
