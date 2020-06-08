@@ -20,7 +20,6 @@ apply plugin: 'maven-publish'
 
 group 'com.oyster.protos'
 version '${artifact_version}'
-archivesBaseName = 'oyster-proto-java'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -54,14 +53,15 @@ publishing {
   publications {
      gpr(MavenPublication) {
          from(components.java)
-         pom{
-             name = 'oyster-proto-java'
-         }
     }
   }
 }
 
 " > build.gradle
+
+printf "rootProject.name = 'oyster-proto-java'
+" > settings.gradle
+
 ./gradle-6.4.1/bin/gradle build
 ./gradle-6.4.1/bin/gradle install
 
