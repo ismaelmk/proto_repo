@@ -84,7 +84,7 @@ fi
 
 echo "generating java files from proto contracts"
 
-mkdir src/main/java
+mkdir -p src/main/java
 
 ./protoc --java_out=./src/main/java *.proto
 
