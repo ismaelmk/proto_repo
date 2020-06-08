@@ -55,6 +55,7 @@ jobs:
       run: echo ${{ steps.bump_version.outputs.tag }}
 
     - name: Publishing java version
-      run: ./gradle-6.4.1/bin/gradle publish
+      run: ./gradle-6.4.1/bin/gradle -Pversion="${{ steps.bump_version.outputs.tag }}"
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ARTIFACT_USERNAME: ${{ github.actor }}
+        ARTIFACT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
