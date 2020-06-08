@@ -33,6 +33,7 @@ repositories {
 }
 
 dependencies {
+    compile group: 'javax.annotation', name: 'javax.annotation-api', version: '1.3.2'
     compile group: 'io.grpc', name: 'grpc-protobuf', version: protobufVersion
     compile group: 'io.grpc', name: 'grpc-netty-shaded', version: protobufVersion
     compile group: 'io.grpc', name: 'grpc-stub', version: protobufVersion
