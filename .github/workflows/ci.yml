@@ -52,11 +52,8 @@ jobs:
         WITH_V: true
         RELEASE_BRANCHES: master
 
-    - name: test bump version
-      run: echo ${{ steps.bump_version.outputs.tag }}
-
     - name: Publishing java version
-      run:  ./gradle-6.4.1/bin/gradle publish -Pversion="${{ steps.bump_version.outputs.tag }}"
+      run:  ./gradle-6.4.1/bin/gradle publish -d 
       env:
         ARTIFACT_USERNAME: ${{ github.actor }}
         ARTIFACT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
