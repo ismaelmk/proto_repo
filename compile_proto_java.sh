@@ -63,7 +63,7 @@ publishing {
 " > build.gradle
 ./gradle-6.4.1/bin/gradle build
 ls -l build/
-ls -l build/lib
+ls -l build/libs
 
 
 
