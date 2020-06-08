@@ -20,7 +20,7 @@ apply plugin: 'maven-publish'
 
 group 'com.oyster.protos'
 version '${artifact_version}'
-rootProject.name = 'oyster-proto-java'
+archivesBaseName = 'oyster-proto-java'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
