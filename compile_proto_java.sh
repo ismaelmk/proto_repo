@@ -13,6 +13,8 @@ if [ ! -z "$1" ]; then
         artifact_version="$1"
 fi;
 
+echo "build version: $artifact_version"
+
 printf "apply plugin: 'maven'
 apply plugin: 'java'
 apply plugin: 'maven-publish'
@@ -60,6 +62,8 @@ publishing {
 
 " > build.gradle
 ./gradle-6.4.1/bin/gradle build
+ls -l build/
+ls -l build/lib
 
 
 
