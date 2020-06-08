@@ -83,7 +83,10 @@ if [ -d "grpc" ]; then
 fi
 
 echo "generating java files from proto contracts"
-./protoc --java_out=. *.proto
+
+mkdir src/main/java
+
+./protoc --java_out=./src/main/java *.proto
 
 ./protoc --plugin=protoc-gen-grpc-java="${protoc_grpc_url_file}" --grpc-java_out=./src/main/java --proto_path=./ *.proto
 
