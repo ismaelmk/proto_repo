@@ -85,7 +85,8 @@ fi
 echo "generating java files from proto contracts"
 ./protoc --java_out=. *.proto
 
-./protoc --plugin=protoc-gen-grpc-java="${protoc_grpc_url_file}" --grpc-java_out=./ --proto_path=./ *.proto
+./protoc --plugin=protoc-gen-grpc-java="${protoc_grpc_url_file}" --grpc-java_out=./src/main/java --proto_path=./ *.proto
 
+ls -l 
 
-
+ls -l src/main/java 
