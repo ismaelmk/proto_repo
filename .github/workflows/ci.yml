@@ -42,7 +42,6 @@ jobs:
 
     - name: Build step
       run: ./compile_proto_java.sh ${{ steps.bump_version.outputs.tag }}
-           ./gradle-6.4.1/bin/gradle install
 
     - name: Bump version and push tag
       id: bump_version
