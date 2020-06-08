@@ -56,7 +56,7 @@ jobs:
       run: echo ${{ steps.bump_version.outputs.tag }}
 
     - name: Publishing java version
-      run:  git config --global user.email "${{ github.actor }}@noreply.github.com" && git config --global user.name "${{ github.actor }}" && git add --force ./* && git commit -am 'commit protofiles' && ./gradle-6.4.1/bin/gradle publish -Pversion="${{ steps.bump_version.outputs.tag }}"
+      run:  ./gradle-6.4.1/bin/gradle publish -Pversion="${{ steps.bump_version.outputs.tag }}"
       env:
         ARTIFACT_USERNAME: ${{ github.actor }}
         ARTIFACT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
