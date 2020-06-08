@@ -13,7 +13,6 @@ if [ ! -z "$1" ]; then
         artifact_version="$1"
 fi;
 
-echo "build version: $artifact_version"
 
 printf "apply plugin: 'maven'
 apply plugin: 'java'
@@ -48,8 +47,8 @@ publishing {
       name = 'GitHubPackages'
       url = 'https://maven.pkg.github.com/ismaelmk/proto_repo'
       credentials(PasswordCredentials){
-        username = System.getenv('secrets.GITHUB_ACTOR')
-        password = System.getenv('secrets.GITHUB_TOKEN')
+        username = System.getenv('ARTIFACT_USERNAME')
+        password = System.getenv('ARTIFACT_TOKEN')
       }
     }
   }
@@ -63,6 +62,8 @@ publishing {
 " > build.gradle
 ./gradle-6.4.1/bin/gradle build
 ./gradle-6.4.1/bin/gradle install
+
+echo "build version: $artifact_version"
 
 ls -l build/
 ls -l build/libs
