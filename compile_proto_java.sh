@@ -19,7 +19,6 @@ apply plugin: 'java'
 apply plugin: 'maven-publish'
 
 group 'com.oyster.protos'
-name 'oyster-proto-java'
 version '${artifact_version}'
 
 
@@ -55,6 +54,9 @@ publishing {
   publications {
      gpr(MavenPublication) {
          from(components.java)
+         pom{
+             name = 'oyster-proto-java'
+         }
     }
   }
 }
